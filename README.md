@@ -1,1 +1,1 @@
-https://rozlera.github.io/goit-markup-hw-04/
+rozlera.github.io/goit-markup-hw-06/
