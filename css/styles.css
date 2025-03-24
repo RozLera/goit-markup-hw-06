@@ -15,6 +15,7 @@
   --grey: rgba(46, 47, 66, 0.7);
   --white: #fff;
   --dairy: #fcfcfc;
+  --link-background: #4d5ae5;
 }
 
 /* #region base */
@@ -967,14 +968,25 @@ button {
 }
 
 .modal-contacts-label {
-  display: block;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.policy-text {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
-  margin-bottom: 4px;
 }
+
+/* -------------------------------- */
+@media only screen and (max-width: 767px) {
+  .modal {
+    width: 288px;
+    min-height: 623px;
+  }
+}
+/* -------------------------------- */
 
 .contacts-container-input {
   position: relative;
@@ -1057,6 +1069,10 @@ button {
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.custom-checkbox {
+  flex-shrink: 0;
+}
+
 .checkbox:checked + .modal-contacts-label > .custom-checkbox {
   background-color: #404bbf;
   fill: #f4f4fd;
@@ -1093,3 +1109,186 @@ button {
 }
 
 /* #endregion modal */
+
+/* #region close btn */
+
+.mobile-menu-container {
+  position: relative;
+  padding-top: 72px;
+  padding-bottom: 40px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  transition: background-color var(--animation) border var(--animation);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background-color: var(--ocean);
+  border: none;
+}
+
+.close-btn .icon {
+  fill: var(--navy-blue);
+  padding: 0;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover .icon,
+.close-btn:focus .icon {
+  fill: var(--white);
+}
+
+/* #endregion close btn */
+
+/* #region mobile */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 555;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity var(--animation), visibility var(--animation);
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Close button styles are located in COMPONENT STYLES */
+
+.mobile-menu-nav {
+  margin-bottom: auto;
+}
+
+.mobile-menu-nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-nav-list li:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.mobile-menu-nav-list li:first-child a {
+  color: #404bbf;
+}
+
+.mobile-menu-nav-list li a:hover,
+.mobile-menu-nav-list li a:focus {
+  color: #404bbf;
+}
+
+.mobile-menu-nav-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  color: var(--navy-blue);
+  transition-property: color var(--animation);
+}
+
+.mobile-menu-contacts {
+  display: block;
+  padding-bottom: 48px;
+  font-style: normal;
+}
+
+.mobile-contacts-list li:first-child {
+  margin-bottom: 24px;
+}
+
+.mobile-link-phone {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--iris);
+}
+
+.mobile-link-email {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+}
+
+.mobile-link-phone:hover,
+.mobile-link-phone:focus,
+.mobile-link-email:hover,
+.mobile-link-email:focus {
+  color: var(--iris);
+}
+
+.mobile-menu-contacts-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.mobile-menu-contacts-link {
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+  transition: color var(--animation);
+}
+.nav-link:hover,
+.nav-link:focus,
+.contacts-link:hover,
+.contacts-link:focus {
+  color: var(--ocean);
+}
+
+.mobile-social-links {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 40px;
+}
+
+.mobile-menu .social-link:hover,
+.mobile-menu .social-link:focus {
+  background-color: var(--green);
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* #endregion  mobile */

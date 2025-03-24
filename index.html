@@ -27,7 +27,7 @@
           <a class="logo logo-header" href="./index.html"
             >Web<span class="logo-part">Studio</span></a
           >
-          <button class="menu-btn" type="button">
+          <button class="menu-btn js-mobile-menu" type="button">
             <svg class="menu-btn-icon" width="24" height="24">
               <use href="./images/icons.svg#menu"></use>
             </svg>
@@ -738,8 +738,10 @@
                   <use href="./images/icons.svg#chekmark"></use>
                 </svg>
               </span>
-              I accept the terms and conditions of the
-              <a class="privacy-link" href="#">Privacy Policy</a>
+              <span class="policy-text">
+                I accept the terms and conditions of the
+                <a class="privacy-link" href="#">Privacy Policy</a>
+              </span>
             </label>
           </div>
 
@@ -748,36 +750,53 @@
       </div>
     </div>
 
-    <!-- переробити класи і в стилях зробити медіа -->
+    <!-- mobile menu -->
 
-    <!-- <div class="mobile-menu">
-      <button></button>
-      <ul class="nav-item-list">
-        <li class="nav-item">
-          <a class="nav-link curent" href="">Studio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contacts</a>
-        </li>
-      </ul>
+    <div class="mobile-menu">
+      <div class="container mobile-menu-container">
+        <button type="button" class="close-btn js-mobile-menu">
+          <svg width="8" height="8" class="icon">
+            <use href="./images/icons.svg#close-black"></use>
+          </svg>
+        </button>
 
-      <ul class="contacts-list">
-        <li class="contacts-item">
-          <a class="contacts-link" href="tel:+110001111111"
-            >+11 (000) 111-11-11</a
-          >
-        </li>
-        <li class="contacts-item">
-          <a class="contacts-link" href="mailto:info@devstudio.com"
-            >info@devstudio.com</a
-          >
-        </li>
-      </ul>
+        <nav class="mobile-menu-nav">
+          <ul class="mobile-menu-nav-list">
+            <li>
+              <a class="mobile-menu-nav-link" href="">Studio</a>
+            </li>
+            <li>
+              <a class="mobile-menu-nav-link" href="">Portfolio</a>
+            </li>
+            <li>
+              <a class="mobile-menu-nav-link" href="">Contacts</a>
+            </li>
+          </ul>
+        </nav>
 
-        <ul class="socials footer-socials">
+        <address class="mobile-menu-contacts">
+          <ul class="mobile-contacts-list">
+            <li>
+              <a
+                class="mobile-contacts-link mobile-link-phone"
+                href="tel:+110001111111"
+                >+11 (000) 111-11-11</a
+              >
+            </li>
+            <li>
+              <a
+                class="mobile-contacts-link mobile-link-email"
+                href="mailto:info@devstudio.com"
+                >info@devstudio.com</a
+              >
+            </li>
+          </ul>
+        </address>
+
+        <!-- socials -->
+
+        <div class="mobile-menu-social-media">
+          <ul class="mobile-social-links">
             <li class="socials-item">
               <a
                 class="socials-link"
@@ -809,6 +828,7 @@
                 </svg>
               </a>
             </li>
+
             <li class="socials-item">
               <a
                 class="socials-link"
@@ -821,11 +841,13 @@
               </a>
             </li>
           </ul>
-    </div> -->
+        </div>
+      </div>
+    </div>
 
     <!-- j-S джава скріпт для відкривання закривання оверлей модальне вікно -->
 
-    <!-- <script defer>
+    <script defer>
       document.addEventListener('DOMContentLoaded', event => {
         console.log('DOM fully loaded and parsed');
         openBtn.addEventListener('click', toggleModal);
@@ -834,6 +856,13 @@
           modal.classList.toggle('is-open');
         }
       });
-    </script> -->
+
+      // mobile-menu toggle
+      document.querySelectorAll('.js-mobile-menu').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelector('.mobile-menu').classList.toggle('is-open');
+        });
+      });
+    </script>
   </body>
 </html>
