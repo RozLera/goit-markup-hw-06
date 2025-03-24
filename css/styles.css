@@ -556,6 +556,10 @@ button {
   row-gap: 72px;
 }
 
+.team-img {
+  width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   .team-list {
     flex-wrap: wrap;
@@ -1220,7 +1224,7 @@ button {
 
 .mobile-menu-contacts {
   display: block;
-  padding-bottom: 48px;
+  margin-bottom: 48px;
   font-style: normal;
 }
 
